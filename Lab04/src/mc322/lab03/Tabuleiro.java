@@ -13,7 +13,7 @@ public class Tabuleiro {
 					tabuleiro[i][j] = null;
 				}
 				else {
-					tabuleiro[i][j] = new Pino(i, j);
+					tabuleiro[i][j] = new Pino();
 				}
 			}
 		}
@@ -21,7 +21,7 @@ public class Tabuleiro {
 	}
 	
 	boolean EstaNoTabuleiro(int i, int j){
-		if((j>1 && j<5)||(i>1 && i<5)) {
+		if((i>1&&i<5&&j>-1&&j<7)||(j>1&&j<5&&i>-1&&i<7)) {
 			return true;
 		} else {
 			return false;
@@ -73,5 +73,36 @@ public class Tabuleiro {
 			}
 		}
 		
+	}
+	
+	String[] executaJogo (String comandos[]) {
+		int n = comandos.length;
+		int iOrigem, jOrigem, iDestino, jDestino;
+		String[] estados = new String[n];
+		String estado = new String();
+		for(int i = 0; i<n; i++) {
+			jOrigem = comandos[i].charAt(0)-97;
+			iOrigem = 55-comandos[i].charAt(1);
+			jDestino = comandos[i].charAt(3)-97;
+			iDestino = comandos[i].charAt(4)-49;
+			Mover(iOrigem, jOrigem, iDestino, jDestino);
+			System.out.printf("%d %d %d %d \n", iOrigem, jOrigem, iDestino, jDestino);
+			for(int k=0;k<7;k++) {
+				for(int j = 0; j<7; j++) {
+					if((k<2 && j>4)||(k<2 && j<2) || (k>4 && j<2) || (k>4 && j>4)) {
+						estado.concat(" ");
+					} else if(tabuleiro[i][j]!=null) {
+						estado.concat("P");
+					}
+					else {
+						estado.concat("-");
+					}
+				}
+				estado.concat("\n");
+		}
+		estados[i]=estado;
+		System.out.print(estado);
+		}
+		return estados;
 	}
 }

@@ -17,9 +17,9 @@ public class Tabuleiro {
 				}
 			}
 		}
-		
+
 	}
-	
+
 	boolean EstaNoTabuleiro(int i, int j){
 		if((i>1&&i<5&&j>-1&&j<7)||(j>1&&j<5&&i>-1&&i<7)) {
 			return true;
@@ -27,7 +27,7 @@ public class Tabuleiro {
 			return false;
 		}
 	}
-	
+
 	String Apresentar() {
 		int indice = 0;
 		char[] representacao = new char[56];
@@ -66,7 +66,7 @@ public class Tabuleiro {
 		//}
 		return new String(representacao);
 	}
-	
+
 	void Mover(String comando) {
 		//transformar coordenadas
 		int jOrigem = comando.charAt(0)-97;
@@ -102,7 +102,7 @@ public class Tabuleiro {
 				tabuleiro[iFora][jFora] = null;
 			}
 		}
-		
+
 	}
-	
+
 }

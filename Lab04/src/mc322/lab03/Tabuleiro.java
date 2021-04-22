@@ -28,19 +28,43 @@ public class Tabuleiro {
 		}
 	}
 	
-	void Apresentar() {
+	String Apresentar() {
+		int indice = 0;
+		char[] representacao = new char[72];
+		char[] numeros = {'7','6','5','4','3','2','1'};
+		char[] letras = {'a','b','c','d','e','f','g'};
 		for(int i=0;i<7;i++) {
+			System.out.print(numeros[i]);
+			representacao[indice]=numeros[i];
+			indice ++;
 			for(int j = 0; j<7; j++) {
 				if(!EstaNoTabuleiro(i,j)) {
 					System.out.print(" ");
+					representacao[indice] = ' ';
+					indice++;
 				} else if(tabuleiro[i][j]==null) {
 					System.out.print("-");
+					representacao[indice] = '-';
+					indice++;
 				} else {
 					System.out.print("P");
+					representacao[indice] = 'P';
+					indice++;
 				}
 			}
 			System.out.print("\n");
+			representacao[indice] = '\n';
+			indice++;
 		}
+		System.out.print(' ');
+		System.out.println(letras);
+		representacao[indice]=' ';
+		indice++;
+		for(int i= 0; i<7; i++) {
+			representacao[indice] = letras[i];
+			indice++;
+		}
+		return new String(representacao);
 	}
 	
 	void Mover(int iOrigem, int jOrigem, int iDestino, int jDestino) {

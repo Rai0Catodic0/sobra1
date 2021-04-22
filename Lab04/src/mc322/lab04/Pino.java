@@ -1,4 +1,4 @@
-package mc322.lab03;
+package mc322.lab04;
 
 public class Pino {
 	char P;

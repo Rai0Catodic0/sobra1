@@ -2,10 +2,9 @@ package mc322.lab04;
 
 public class AppRestaUm {
 	public static void main(String args[]) {
-		//CSVReader csv = new CSVReader();
-	    //csv.setDataSource("/Lab04/src/mc322/lab03/jogadas.csv");
-	    //String commands[] = csv.requestCommands();
-		String commands[] = {"d2:d4","d5:d3","f4:d4","c4:e4"};
+		CSVReader csv = new CSVReader();
+	    csv.setDataSource("/home/jessica/sobra1/Lab04/src/db/teste01.csv");
+	    String commands[] = csv.requestCommands();
 		executaJogo(commands);
 	}
 	

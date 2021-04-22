@@ -35,8 +35,6 @@ public class Tabuleiro {
 		char[] letras = {'a','b','c','d','e','f','g'};
 		for(int i=0;i<7;i++) {
 			System.out.print(numeros[i]);
-			//representacao[indice]=numeros[i];
-			//indice ++;
 			for(int j = 0; j<7; j++) {
 				if(!EstaNoTabuleiro(i,j)) {
 					System.out.print(" ");
@@ -58,12 +56,6 @@ public class Tabuleiro {
 		}
 		System.out.print(' ');
 		System.out.println(letras);
-		//representacao[indice]=' ';
-		//indice++;
-		//for(int i= 0; i<7; i++) {
-		//	representacao[indice] = letras[i];
-		//	indice++;
-		//}
 		return new String(representacao);
 	}
 
@@ -73,7 +65,6 @@ public class Tabuleiro {
 		int iOrigem = 55-comando.charAt(1);
 		int jDestino = comando.charAt(3)-97;
 		int iDestino = 55-comando.charAt(4);
-		//System.out.printf("%d %d %d %d \n", iOrigem, jOrigem, iDestino, jDestino);
 		//validar movimento
 		if(!EstaNoTabuleiro(iDestino,jDestino)||!EstaNoTabuleiro(iDestino, jDestino)) {
 			System.out.println("Casas inválidas!");

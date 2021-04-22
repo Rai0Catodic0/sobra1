@@ -6,5 +6,7 @@ public class AppRestaUm {
 		resta1.Apresentar();
 		resta1.Mover(6, 2, 6, 4);
 		resta1.Apresentar();
+		resta1.Mover(0,3,2,3);
+		resta1.Apresentar();
 	}
 }

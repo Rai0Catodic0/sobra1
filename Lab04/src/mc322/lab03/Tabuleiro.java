@@ -3,7 +3,7 @@ import java.lang.Math;
 
 public class Tabuleiro {
 	Pino tabuleiro[][] = new Pino[7][7];
-	
+	int numeroDePinos = 32;
 	Tabuleiro() {
 		for(int i=0;i<7;i++) {
 			for(int j = 0; j<7; j++) {
@@ -53,6 +53,10 @@ public class Tabuleiro {
 			System.out.println("Movimento na Diagonal Inválido");
 		} else if(Math.abs(iOrigem-iDestino)>1 && Math.abs(jOrigem-jDestino)>1){
 			System.out.println("Você está pulando muitas casas!");
+		} else if(iOrigem == iDestino && tabuleiro[iOrigem][jOrigem+1]== null) {
+			System.out.println("Movimento invalido");
+		} else if(jOrigem == jDestino && tabuleiro[iOrigem+1][jOrigem]==null) {
+			System.out.println("Movimento invalido");
 		} else {
 			System.out.println("Movimento válido:");
 			tabuleiro[iDestino][jDestino] = tabuleiro[iOrigem][jOrigem];
